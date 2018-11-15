@@ -6,7 +6,7 @@ import projetoescola.modelo.enums.SituacaoMensalidade;
 
 
 public class Mensalidade {
-	private Matricula matricula;
+	private Contrato matricula;
 	
 	private Date dataVencimento;
 	private int parcela;
@@ -23,10 +23,10 @@ public class Mensalidade {
 	public void setDataVencimento(Date dataVencimento) {
 		this.dataVencimento = dataVencimento;
 	}
-	public Matricula getMatricula() {
+	public Contrato getMatricula() {
 		return matricula;
 	}
-	public void setMatricula(Matricula matricula) {
+	public void setMatricula(Contrato matricula) {
 		this.matricula = matricula;
 	}
 	public int getParcela() {

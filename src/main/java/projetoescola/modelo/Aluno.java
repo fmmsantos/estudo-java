@@ -7,7 +7,6 @@ import projetoescola.modelo.enums.Sexo;
 public class Aluno extends Pessoa {
 	private Sexo sexo;
 	private Date dataNascimento;
-	
 	public Aluno() {
 		this.sexo=Sexo.MASCULINO;
 	}

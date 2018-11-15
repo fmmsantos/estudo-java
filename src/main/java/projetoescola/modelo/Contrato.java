@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Matricula {
+public class Contrato {
 	private int numero;
 	private Aluno aluno;
 	private Responsavel responsavel;
 	private List<Mensalidade> mensalidades;
 	private Date data;
 	
-	public Matricula() {
+	public Contrato() {
 		mensalidades = new ArrayList<Mensalidade>();
 	}
 	public Date getData() {

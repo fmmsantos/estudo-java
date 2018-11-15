@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import projetoescola.modelo.Aluno;
-import projetoescola.modelo.Matricula;
+import projetoescola.modelo.Contrato;
 import projetoescola.modelo.Mensalidade;
 import projetoescola.modelo.Responsavel;
 import projetoescola.modelo.enums.Sexo;
@@ -29,7 +29,7 @@ public class Projeto {
 
 		Aluno aluno=novoAluno("Fabiana Machado dos Santos", Sexo.FEMININO, dataNascimento.getTime());
 		aluno.setEndereco("Av Nossa Senhora da Assuncao, 647");
-		Matricula matriculaAluno = realizarMatricula(aluno, responsavel, dataMatricula.getTime(), 951, 103.74, 10);
+		Contrato matriculaAluno = realizarMatricula(aluno, responsavel, dataMatricula.getTime(), 951, 103.74, 10);
 
 		//A PARTIR DAQUI So VEMOS MATRICULA
 		imprimirMatricula(matriculaAluno);
@@ -42,7 +42,7 @@ public class Projeto {
 
 		
 	}
-	static void imprimirMatricula(Matricula matricula) {
+	static void imprimirMatricula(Contrato matricula) {
 		System.out.println("******************* DADOS DO ALUNO ***********************");
 		System.out.println("Nome do Aluno: "+matricula.getAluno().getNome());
 		System.out.println("Sexo do Aluno: "+matricula.getAluno().getSexo());
@@ -69,8 +69,8 @@ public class Projeto {
 		aluno.setDataNascimento(dataNascimento);
 		return aluno;
 	}
-	static Matricula realizarMatricula(Aluno aluno, Responsavel responsavel,Date dataMatricula,Integer numeroMatricula, Double valorParcela, Integer numeroParcelas) {
-		Matricula novaMatricula = new Matricula();
+	static Contrato realizarMatricula(Aluno aluno, Responsavel responsavel,Date dataMatricula,Integer numeroMatricula, Double valorParcela, Integer numeroParcelas) {
+		Contrato novaMatricula = new Contrato();
 		novaMatricula.setAluno(aluno);
 		novaMatricula.setResponsavel(responsavel);
 		novaMatricula.setNumero(numeroMatricula);
