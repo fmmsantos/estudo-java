@@ -7,5 +7,7 @@ public class IdentificadoresPalavasChave {
 		
 		//static e final ...
 		//final versus abstract: 
+		
+		//valatile ?????
 	}
 }
