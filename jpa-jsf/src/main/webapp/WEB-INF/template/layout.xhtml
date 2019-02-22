@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<f:facet name="first">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+		<meta http-equiv="Content-Type"
+			content="text/html; charset=UTF-8; encoding=UTF-8" />
+		<meta http-equiv='Pragma' content='no-cache' />
+	</f:facet>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title><ui:insert name="title" /> :: TRINEO</title>
+</h:head>
+<h:body>
+
+	<p:layout fullPage="true">
+
+		<p:layoutUnit position="north" size="100" resizable="true">
+			<h:outputText
+				value="COLOQUE OS DADOS - IMAGENS DA SUA EMPRESA NO TOPO" />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="south" size="100">
+			<h:outputText value="RODAPE DO SISTEMA" />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="west" size="170">
+			<h:form>
+				<p:menu toggleable="true">
+					<p:submenu label="Cadastros">
+						<p:menuitem value="Alunos" outcome="alunos" icon="pi pi-save" />
+						<p:menuitem value="Turmas" icon="pi pi-refresh" />
+					</p:submenu>
+					<p:submenu label="Matricula">
+						<p:menuitem value="Inclusão" icon="pi pi-times" />
+						<p:menuitem value="Consulta" icon="pi pi-times" />
+					</p:submenu>
+					<p:submenu label="Consultas">
+						<p:menuitem value="Titulos a Pagar" icon="pi pi-home" />
+						<p:menuitem value="Caixa" icon="pi pi-star" />
+					</p:submenu>
+				</p:menu>
+			</h:form>
+		</p:layoutUnit>
+
+		<p:layoutUnit rendered="false" position="east" size="200"
+			header="Right" resizable="true" closable="true" collapsible="true"
+			effect="drop">
+			<h:outputText value="Right unit content." />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="center">
+			<ui:insert name="body" />
+		</p:layoutUnit>
+
+	</p:layout>
+
+</h:body>
+
+</html>

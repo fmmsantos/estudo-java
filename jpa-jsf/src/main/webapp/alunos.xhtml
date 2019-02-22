@@ -1,0 +1,60 @@
+<ui:composition template="/WEB-INF/template/layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="title">Aluno</ui:define>
+
+	<ui:define name="body">
+		
+		<p:panel header="Alunos">
+			<h:form id="form">
+				<p:panelGrid columns="2">
+					<p:commandButton value="Novo" actionListener="#{alunoMB.incluir}"
+						oncomplete="PF('dlg').show();" />
+					<h:panelGroup>
+						<p:inputText />
+						<p:commandButton value="Buscar" action="#{alunoMB.buscar}"
+							update="tab" />
+					</h:panelGroup>
+				</p:panelGrid>
+			</h:form>
+			<p:dataTable id="tab" value="#{alunoMB.alunos}" var="i">
+				<p:column headerText="Matricula" width="60">
+					<h:outputText value="#{i.matricula}" />
+				</p:column>
+				<p:column headerText="Nome">
+					<h:outputText value="#{i.nome}" />
+				</p:column>
+				<p:column style="width:32px;text-align: center">
+					<p:commandButton update="formDialog"
+						oncomplete="PF('dlg').show()" icon="pi pi-search"
+						title="View">
+						<f:setPropertyActionListener value="#{i}"
+							target="#{alunoMB.aluno}" />
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</p:panel>
+		<p:dialog header="Cadastro Aluno" widgetVar="dlg" resizable="false">
+			<h:form id="formDialog">
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Matricula" />
+					<p:inputText value="#{alunoMB.aluno.matricula}" />
+					<p:outputLabel value="Nome" />
+					<p:inputText value="#{alunoMB.aluno.nome}" />
+					
+					<p:outputLabel value="Data de Nascimento:" />
+					<p:calendar value="#{alunoMB.aluno.dataNascimento}"
+					locale="pt_BR" navigator="true" pattern="dd/MM/yyyy"/>
+						<p:commandButton value="Salvar" action="#{alunoMB.salvar}" oncomplete="PF('dlg').hide();" />
+					<p:commandButton value="Sair" oncomplete="PF('dlg').hide();" />
+				</p:panelGrid>
+			</h:form>
+		</p:dialog>
+	
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,20 @@
+.ui-widget, .ui-widget .ui-widget {
+	font-size: 12px !important;
+	margin: 1px !important;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* TABVIEW */
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a {
+	color: #555;
+}
+/* PANELGRID */
+.ui-panelgrid.panelgrid-noborder .ui-grid-responsive {
+	border: none;
+}
+.ui-panelgrid-cell .ui-widget{
+	margin-left: 7px;	
+}
+.ui-panelgrid .ui-panelgrid-cell{
+	    border-width: 0px !important;
+	     padding: 1px 1px !important;
+}

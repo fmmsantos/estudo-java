@@ -1,0 +1,1 @@
+http://blog.triadworks.com.br/quando-usar-action-ou-actionlistener-com-jsf
