@@ -1,0 +1,31 @@
+<ui:composition template="/WEB-INF/template/layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="title">Login</ui:define>
+
+	<ui:define name="body">
+		
+		<p:dialog header="Login" widgetVar="dlg" resizable="false">
+			<h:form id="formDialog">
+			
+			
+				<h:panelGrid columns="2" cellpadding="5">
+            <h:outputLabel  value="Usuario:" />
+            <p:inputText  value="#{loginMB.usuario}" required="true" label="usuario" />
+             
+            <h:outputLabel  value="Senha:" />
+            <p:password  value="#{loginMB.senha}" required="true" label="password" />
+						
+						<p:commandButton value="Entrar" action="#{loginMB.EfetuarLogin}" oncomplete="PF('dlg').hide();" update = "@form" />
+					<p:commandButton value="Sair" oncomplete="PF('dlg').hide();" />
+				</p:panelGrid>
+			</h:form>
+		</p:dialog>
+	
+	</ui:define>
+
+</ui:composition>

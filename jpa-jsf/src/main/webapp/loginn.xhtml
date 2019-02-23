@@ -1,0 +1,38 @@
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		
+		<style>
+		body {font-size:12px; }
+</style>
+	</h:head>
+	<h:body>
+		<h:form >
+    <p:panel id="panel" header="Porfavor, digite seu nome e sua senha."  >
+ 
+        <p:messages id="msgs" />
+ 
+        <h:panelGrid columns="4" cellpadding="8" >
+          <h:outputLabel  value="Usuario:" />
+            <p:inputText  value="#{loginMB.login}" required="true" label="login" />
+             
+            <h:outputLabel  value="Senha:" />
+            <p:password  value="#{loginMB.senha}" required="true" label="password" />
+			
+			
+						
+        </h:panelGrid>
+ <p:commandButton value="Entrar" action="#{loginMB.efetuarLogin}" oncomplete="PF('dlg').hide();" update = "@form" />
+					<p:commandButton value="Sair" oncomplete="PF('dlg').hide();" />
+ 			
+       
+    </p:panel>
+</h:form>
+	</h:body>
+</f:view>

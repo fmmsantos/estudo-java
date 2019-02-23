@@ -10,7 +10,8 @@
 	<ui:define name="body">
 		
 		<p:panel header="Alunos">
-			<h:form id="form">
+			<h:form id="form" >
+			
 				<p:panelGrid columns="2">
 					<p:commandButton value="Novo" actionListener="#{alunoMB.incluir}"
 						oncomplete="PF('dlg').show();" />
@@ -20,15 +21,33 @@
 							update="tab" />
 					</h:panelGroup>
 				</p:panelGrid>
-			</h:form>
-			<p:dataTable id="tab" value="#{alunoMB.alunos}" var="i">
-				<p:column headerText="Matricula" width="60">
+			</h:form >
+			<p:dataTable id="tab" value="#{alunoMB.alunos}" var="i" >
+				<p:column headerText="Matricula" width="30" >
 					<h:outputText value="#{i.matricula}" />
 				</p:column>
-				<p:column headerText="Nome">
+				<p:column headerText="Nome" width="100">
 					<h:outputText value="#{i.nome}" />
 				</p:column>
+			
+				<p:column headerText="Data de Nascimento" width="60">
+					<h:outputText value="#{i.dataNascimento}" >
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Endereço" width="60">
+					<h:outputText value="#{i.endereco}" />
+				</p:column>
+				<p:column headerText="Telefone" width="60">
+					<h:outputText value="#{i.telefone}" />
+				</p:column>
+				
+					<p:column headerText="Celular" width="40">
+					<h:outputText value="#{i.celular}" />
+				</p:column>
+				
 				<p:column style="width:32px;text-align: center">
+					
 					<p:commandButton update="formDialog"
 						oncomplete="PF('dlg').show()" icon="pi pi-search"
 						title="View">
@@ -40,16 +59,30 @@
 		</p:panel>
 		<p:dialog header="Cadastro Aluno" widgetVar="dlg" resizable="false">
 			<h:form id="formDialog">
+			
+			
 				<p:panelGrid columns="2">
 					<p:outputLabel value="Matricula" />
 					<p:inputText value="#{alunoMB.aluno.matricula}" />
+					
 					<p:outputLabel value="Nome" />
 					<p:inputText value="#{alunoMB.aluno.nome}" />
 					
 					<p:outputLabel value="Data de Nascimento:" />
 					<p:calendar value="#{alunoMB.aluno.dataNascimento}"
-					locale="pt_BR" navigator="true" pattern="dd/MM/yyyy"/>
-						<p:commandButton value="Salvar" action="#{alunoMB.salvar}" oncomplete="PF('dlg').hide();" />
+					locale="pt_BR" navigator="true" pattern="dd/MM/yyyy" yearRange="c-25:c+1"
+					/>
+					
+					<p:outputLabel value="Endereço" />
+					<p:inputText value="#{alunoMB.aluno.endereco}" />
+					
+					<p:outputLabel value="Telefone" />
+					<p:inputText value="#{alunoMB.aluno.telefone}" />
+					
+					<p:outputLabel value="Celular" />
+					<p:inputText value="#{alunoMB.aluno.celular}" />	
+						
+						<p:commandButton value="Salvar" action="#{alunoMB.salvar}" oncomplete="PF('dlg').hide();" update = "@form" />
 					<p:commandButton value="Sair" oncomplete="PF('dlg').hide();" />
 				</p:panelGrid>
 			</h:form>

@@ -3,6 +3,8 @@ package open.digytal.jpajsf.managedbean;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +23,8 @@ public class AlunoMB {
 	@Autowired
 	private AlunoRepository repository;
 	private List<Aluno> alunos;
-	public List<Sexo> getSexos() {
-		return sexos;
-	}
-	public void setSexos(List<Sexo> sexos) {
-		this.sexos = sexos;
-	}
 	private Aluno aluno;
-	private List<Sexo> sexos = Arrays.asList(Sexo.values());
+	
 	
 	public List<Aluno> getAlunos() {
 		return alunos;
@@ -36,13 +32,17 @@ public class AlunoMB {
 	public AlunoMB() {
 		
 	}
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
+	}
 	public void buscar() {
 		alunos = repository.findAll();
 		System.out.println("buscou " + alunos.size());
 	}
 	public void salvar() {
 		repository.save(aluno);
-		novo();
+		novo() ;
+		saveMessage();
 	}
 	public void incluir(ActionEvent event) {
 		novo();
@@ -56,4 +56,8 @@ public class AlunoMB {
 	public void novo() {
 		aluno = new Aluno();
 	}
+	 public void saveMessage() {
+	        FacesContext context = FacesContext.getCurrentInstance();
+	        context.addMessage(null, new FacesMessage("Cadastro salvo com sucesso!!"));
+	    }
 }

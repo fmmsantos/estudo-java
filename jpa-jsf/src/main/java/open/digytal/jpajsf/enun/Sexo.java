@@ -2,12 +2,14 @@ package open.digytal.jpajsf.enun;
 
 public enum Sexo {
 	
-	FEMININO("Feminino"),MASCULINO("Masculino");
+	FEMININO,MASCULINO;
+	//("Feminino"),
+	///("Masculino");
 	
-	private String opcaoSexo;
+/*	private String opcaoSexo;
 	
 	Sexo(String opcaoSexo){
-		this.opcaoSexo=opcaoSexo;
+	this.opcaoSexo=opcaoSexo;
 		
 
 }
@@ -18,5 +20,5 @@ public enum Sexo {
 
 	public void setOpcaoSexo(String opcaoSexo) {
 		this.opcaoSexo = opcaoSexo;
-	}
+	}*/
 }
