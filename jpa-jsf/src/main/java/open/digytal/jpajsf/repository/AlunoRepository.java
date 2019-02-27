@@ -10,4 +10,5 @@ import open.digytal.jpajsf.model.Aluno;
 public interface AlunoRepository extends JpaRepository<Aluno, Integer> {
 List<Aluno> findBySexo(Sexo sexo);
 
+
 }

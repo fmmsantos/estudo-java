@@ -41,8 +41,16 @@ public class AlunoMB {
 	}
 	public void salvar() {
 		repository.save(aluno);
+	
+		
 		novo() ;
-		saveMessage();
+		
+	}
+	
+	public void excluir() {
+	alunos = repository.findAll();
+		repository.delete(aluno);
+		
 	}
 	public void incluir(ActionEvent event) {
 		novo();

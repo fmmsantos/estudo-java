@@ -4,8 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import open.digytal.jpajsf.model.Usuario;
 
-public interface LoginRepository extends JpaRepository<Usuario, Integer>{
-	Usuario getByUsuario(String usuario);
-
+public interface UsuarioRepository extends JpaRepository<Usuario, String>{
+	public Usuario findByLogin(String login);
 
 }

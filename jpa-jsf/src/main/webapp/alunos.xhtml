@@ -23,9 +23,7 @@
 				</p:panelGrid>
 			</h:form >
 			<p:dataTable id="tab" value="#{alunoMB.alunos}" var="i" >
-				<p:column headerText="Matricula" width="30" >
-					<h:outputText value="#{i.matricula}" />
-				</p:column>
+				
 				<p:column headerText="Nome" width="100">
 					<h:outputText value="#{i.nome}" />
 				</p:column>
@@ -46,6 +44,13 @@
 					<h:outputText value="#{i.celular}" />
 				</p:column>
 				
+				
+					<p:column headerText="" width="40">
+					<p:commandLink style="color:blue" value="Excluir" action="#{alunoMB.excluir}"
+					 />
+				
+				</p:column>
+				
 				<p:column style="width:32px;text-align: center">
 					
 					<p:commandButton update="formDialog"
@@ -56,33 +61,33 @@
 					</p:commandButton>
 				</p:column>
 			</p:dataTable>
+		
 		</p:panel>
 		<p:dialog header="Cadastro Aluno" widgetVar="dlg" resizable="false">
 			<h:form id="formDialog">
 			
 			
-				<p:panelGrid columns="2">
-					<p:outputLabel value="Matricula" />
-					<p:inputText value="#{alunoMB.aluno.matricula}" />
-					
-					<p:outputLabel value="Nome" />
-					<p:inputText value="#{alunoMB.aluno.nome}" />
+		
+				<p:panelGrid columns="2" >
+				
+	                
+					<p:outputLabel value="Nome" for="nome"/>
+					<p:inputText id="nome" value="#{alunoMB.aluno.nome}"  required="true" requiredMessage="Campo Obrigatorio" />
 					
 					<p:outputLabel value="Data de Nascimento:" />
-					<p:calendar value="#{alunoMB.aluno.dataNascimento}"
-					locale="pt_BR" navigator="true" pattern="dd/MM/yyyy" yearRange="c-25:c+1"
-					/>
+					  <p:calendar  value="#{alunoMB.aluno.dataNascimento}" mask="true" showOn="false" pattern="dd/MM/yyyy"/>
 					
 					<p:outputLabel value="Endereço" />
 					<p:inputText value="#{alunoMB.aluno.endereco}" />
 					
 					<p:outputLabel value="Telefone" />
-					<p:inputText value="#{alunoMB.aluno.telefone}" />
+				    <p:inputMask value="#{alunoMB.aluno.telefone}" mask="(99) 99999-9999"/>
+				
 					
 					<p:outputLabel value="Celular" />
-					<p:inputText value="#{alunoMB.aluno.celular}" />	
+					 <p:inputMask value="#{alunoMB.aluno.celular}" mask="(99) 9999-9999"/>
 						
-						<p:commandButton value="Salvar" action="#{alunoMB.salvar}" oncomplete="PF('dlg').hide();" update = "@form" />
+						<p:commandButton value="Salvar"  action="#{alunoMB.salvar}" oncomplete="PF('dlg').hide();" update = "@form" />
 					<p:commandButton value="Sair" oncomplete="PF('dlg').hide();" />
 				</p:panelGrid>
 			</h:form>
